@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_180644) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_184435) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "main_cause_id"
+    t.bigint "sub_cause_id"
+    t.string "timeframe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_cause_id"], name: "index_bets_on_main_cause_id"
+    t.index ["sub_cause_id"], name: "index_bets_on_sub_cause_id"
+    t.index ["user_id"], name: "index_bets_on_user_id"
+  end
+
+  create_table "main_causes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_causes", force: :cascade do |t|
+    t.bigint "main_cause_id"
+    t.string "title"
+    t.text "description"
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_cause_id"], name: "index_sub_causes_on_main_cause_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :bets
   require "securerandom"
 
   has_secure_password
