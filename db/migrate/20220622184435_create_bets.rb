@@ -3,7 +3,7 @@ class CreateBets < ActiveRecord::Migration[7.0]
     create_table :bets do |t|
       t.references :user, index: true
       t.references :main_cause, index: true
-      t.references :sub_cause, index: true
+      t.references :sub_cause, null: true
       t.string :timeframe
       t.timestamps
     end

@@ -1,7 +1,7 @@
 class Bet < ApplicationRecord
   belongs_to :user
   belongs_to :main_cause
-  belongs_to :sub_cause
+  belongs_to :sub_cause, optional: true
   after_save :increment_usage_count
 
   private
