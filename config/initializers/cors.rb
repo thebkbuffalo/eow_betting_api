@@ -7,7 +7,13 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "localhost:3001", "http://127.0.0.1:3000", "localhost:3000", "https://glistening-paletas-cd167e.netlify.app", "https://62b9ede3c578130009e55112--glistening-paletas-cd167e.netlify.app/"
+    origins [
+      "localhost:3001", 
+      "http://127.0.0.1:3000", 
+      "localhost:3000", 
+      "https://glistening-paletas-cd167e.netlify.app", 
+      "https://62b9ede3c578130009e55112--glistening-paletas-cd167e.netlify.app"
+    ]
 
     resource "*",
       headers: :any,
