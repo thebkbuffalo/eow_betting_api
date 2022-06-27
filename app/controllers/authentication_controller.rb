@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
     if @user&.authenticate(params[:password])
       token = jwt_encode(user_id: @user.id)
       # render json: {token: token, user: @user}, status: :ok
-      cookies.signed[:jwt] = {value: token, httponly: true}
+      cookies.signed[:jwt] = {value: token, httponly: true, same_site: :none}
       puts("JWT TOKEN IN COOKIE --- #{cookies.signed[:jwt]}")
       render json: {user: @user, loggedIn: true}
     else
