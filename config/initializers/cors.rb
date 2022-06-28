@@ -14,7 +14,8 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       "localhost:3000", 
       "https://glistening-paletas-cd167e.netlify.app", 
       "https://62b9ede3c578130009e55112--glistening-paletas-cd167e.netlify.app",
-      "https://eow-react.herokuapp.com/"
+      "https://eow-react.herokuapp.com"
+
     ]
 
     resource "*",
