@@ -33,12 +33,15 @@ SubCause.create([
   {main_cause_id: 2, title: 'Chemical Warfare', description: 'The usage of chemical weapons has decimated all life on earth'}
 ])
 
-Bet.create([
-  {user_id: 1, main_cause_id: 1, sub_cause_id: 1, timeframe: '1 year'},
-  # {user_id: 2, main_cause_id: 1, sub_cause_id: 2, timeframe: '2 years'},
-  {user_id: 3, main_cause_id: 2, sub_cause_id: 1, timeframe: '3 years'},
-  {user_id: 4, main_cause_id: 3, timeframe: '5 years'},
-  # {user_id: 1, main_cause_id: 1, sub_cause_id: 2, timeframe: '10 years'},
-  # {user_id: 5, main_cause_id: 2, sub_cause_id: 1, timeframe: '7 years'},
-  # {user_id: 6, main_cause_id: 2, sub_cause_id: 2, timeframe: '10 years'}
-])
+# random_user_id = rand(1..10)
+# random_main_cause_id = rand(1..3)
+# random_sub_cause_id = rand(1..2)
+timeframes = ["1 year", "2 years", "3 years, 6 months", "4 years, 2 months", "10 years", "7 years, 8 months", "11 years", "13 years, 11 months"]
+
+15.times do
+  Bet.create(user_id: rand(1..10), main_cause_id: rand(1..3), sub_cause_id: rand(1..2), timeframe: timeframes.sample)
+end
+
+5.times do
+  Bet.create(user_id: rand(1..10), main_cause_id: rand(1..3), timeframe: timeframes.sample)
+end

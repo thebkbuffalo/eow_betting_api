@@ -4,10 +4,10 @@ class DashboardController < ApplicationController
   def index
     if params[:user_id].present?
       bets = Bet.where(user_id: params[:user_id])
-      payload = {bets: bets, status: :ok}
-      render json: payload
+      payload = format_bets_response(bets)
+      render json: {bets: payload}
     else
-      render json: 'this user has no bets', status: :ok
+      render json: 'user not found', status: :ok
     end
   end
 end

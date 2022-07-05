@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :dashboard
+  resources :home
   post '/auth/login', to: 'authentication#login'
 end
