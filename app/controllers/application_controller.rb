@@ -14,7 +14,8 @@ class ApplicationController < ActionController::API
           main_cause: bet.main_cause.title,
           sub_cause_id: bet.sub_cause_id,
           sub_cause: sub_cause, 
-          timeframe: bet.timeframe
+          timeframe: bet.timeframe,
+          amount: bet.amount
         }
       end
     else

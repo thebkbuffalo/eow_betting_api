@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_22_184435) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_171812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_22_184435) do
     t.string "timeframe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount", default: 0
     t.index ["main_cause_id"], name: "index_bets_on_main_cause_id"
     t.index ["sub_cause_id"], name: "index_bets_on_sub_cause_id"
     t.index ["user_id"], name: "index_bets_on_user_id"
