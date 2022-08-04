@@ -6,14 +6,14 @@ class ApplicationController < ActionController::API
   def format_bets_response(bets)
     if bets.present?
       payload = bets.map do |bet|
-        sub_cause = bet.sub_cause.present? ? bet.sub_cause.title : 'no sub cause'
+        # sub_cause = bet.sub_cause.present? ? bet.sub_cause.title : 'no sub cause'
         {
           bet_id: bet.id, 
           user_name: bet.user.full_name,
           main_cause_id: bet.main_cause_id,
           main_cause: bet.main_cause.title,
           sub_cause_id: bet.sub_cause_id,
-          sub_cause: sub_cause, 
+          sub_cause: bet.sub_cause.present? ? bet.sub_cause.title : 'No sub cause',
           timeframe: bet.timeframe,
           amount: bet.amount
         }
