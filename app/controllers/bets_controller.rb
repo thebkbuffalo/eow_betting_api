@@ -3,6 +3,10 @@ class BetsController < ApplicationController
   def new
   end
 
+  def create
+    binding.pry
+  end
+
   def all_causes_for_dropdown
     main_causes = MainCause.all
     @payload = main_causes.map do |cause|
