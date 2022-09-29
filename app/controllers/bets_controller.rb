@@ -4,7 +4,13 @@ class BetsController < ApplicationController
   end
 
   def create
-    binding.pry
+    new_bet = params['bet']
+    new_bet['amount'] = new_bet['amount'].to_i
+    if Bet.create(bet_params)
+      render json: {message: 'new bet created', status: :created}
+    else
+      render json: {message: 'something went wrong', status: response.status}
+    end
   end
 
   def all_causes_for_dropdown
@@ -23,8 +29,9 @@ class BetsController < ApplicationController
     render json: {main_causes: @main_causes, status: :ok} 
   end
 
-  def sub_causes_for_dropdown
-
-  end
+  private
+    def bet_params
+      params.require(:bet).permit(:user_id, :main_cause_id, :sub_cause_id, :timeframe, :amount)
+    end
 
 end
