@@ -14,7 +14,8 @@ class ApplicationController < ActionController::API
           main_cause: bet.main_cause.title,
           sub_cause_id: bet.sub_cause_id,
           sub_cause: bet.sub_cause.present? ? bet.sub_cause.title : 'No sub cause',
-          timeframe: bet.timeframe,
+          timeframe_years: bet.timeframe_years.to_s,
+          timeframe_months: bet.timeframe_months.to_s,
           amount: bet.amount
         }
       end
