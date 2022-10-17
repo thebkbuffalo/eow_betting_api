@@ -31,7 +31,7 @@ class BetsController < ApplicationController
 
   private
     def bet_params
-      params.require(:bet).permit(:user_id, :main_cause_id, :sub_cause_id, :timeframe, :amount)
+      params.require(:bet).permit(:user_id, :main_cause_id, :sub_cause_id, :timeframe_years, :timeframe_months, :amount)
     end
 
 end
