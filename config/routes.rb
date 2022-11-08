@@ -15,4 +15,6 @@ Rails.application.routes.draw do
       get 'sub_causes_for_dropdown'
     end
   end
+
+  resources :causes, only: [:new, :create]
 end

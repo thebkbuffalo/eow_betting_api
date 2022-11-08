@@ -7,10 +7,12 @@ class Bet < ApplicationRecord
   private
     def increment_usage_count
       if self.main_cause.present?
-        self.main_cause.update_attribute('count', +1)
+        new_count_main = self.main_cause.count + 1
+        self.main_cause.update_attribute('count', new_count_main)
       end
       if self.sub_cause.present?
-        self.sub_cause.update_attribute('count', +1)
+        new_count_sub = self.sub_cause.count + 1
+        self.sub_cause.update_attribute('count', new_count_sub)
       end
     end
 end
