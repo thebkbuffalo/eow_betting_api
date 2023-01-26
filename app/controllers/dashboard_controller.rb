@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     if params[:user_id].present?
-      bets = Bet.where(user_id: params[:user_id]).reverse
+      bets = Bet.where(user_id: params[:user_id]).includes(:user, :main_cause, :sub_cause).reverse
       payload = format_bets_response(bets)
       render json: {bets: payload}
     else

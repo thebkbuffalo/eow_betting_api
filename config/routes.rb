@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :dashboard
-  resources :home
+  resources :home do
+    collection do
+      get 'is_logged_in'
+    end
+  end
   post '/auth/login', to: 'authentication#login'
 
   resources :bets, only: [:new, :create] do 

@@ -9,9 +9,10 @@ class ApplicationController < ActionController::API
         # sub_cause = bet.sub_cause.present? ? bet.sub_cause.title : 'no sub cause'
         main_cause = bet.main_cause
         sub_cause = bet.sub_cause_id.present? ? bet.sub_cause : nil
+        user = bet.user
         {
           bet_id: bet.id, 
-          user_name: bet.user.full_name,
+          user_name: user.full_name,
           main_cause_id: main_cause.id,
           main_cause: main_cause.title,
           sub_cause_id: sub_cause.present? ? sub_cause.id : nil,

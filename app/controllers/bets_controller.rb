@@ -14,7 +14,7 @@ class BetsController < ApplicationController
   end
 
   def all_causes_for_dropdown
-    main_causes = MainCause.all
+    main_causes = MainCause.includes(:sub_causes)
     @payload = main_causes.map do |cause|
       sub_causes = cause.sub_causes
       cause = cause.attributes
