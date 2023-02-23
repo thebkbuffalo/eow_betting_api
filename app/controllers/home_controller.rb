@@ -8,8 +8,8 @@ class HomeController < ApplicationController
     render json: {bets: payload}
   end
 
-  def is_logged_in
-    binding.pry
-  end
+  # def is_logged_in
+  #   binding.pry
+  # end
 
 end
